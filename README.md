@@ -1,0 +1,1 @@
+# canl-deprem-haritas-
