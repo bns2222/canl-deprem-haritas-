@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+.feed-item {
+  animation: feedIn 0.4s ease-out backwards;
+}
+
+/* İnce, sessiz bir scrollbar - Instagram/Twitter tarzı */
+.feed-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.feed-scroll::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+
+.feed-scroll {
+  scroll-behavior: smooth;
+}
+
+@keyframes feedIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.feed-item {
+  animation: feedIn 0.4s ease-out backwards;
+}
+
+.feed-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.feed-scroll::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+
+.feed-scroll {
+  scroll-behavior: smooth;
+}
+
+/*cpuda yeniden çizim yerine gpu da  tranform kullanır haritada zoomlarken */
+
+.leaflet-container {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Custom Leaflet Popup Styling - Transparent Wrapper to allow React styling */
+.custom-quake-popup .leaflet-popup-content-wrapper {
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  border-radius: 1rem !important;
+}
+
+.custom-quake-popup .leaflet-popup-content {
+  margin: 0 !important;
+  width: 270px !important;
+}
+
+.custom-quake-popup .leaflet-popup-tip {
+  background: #ffffff !important;
+  /* Keep the tip white to match card */
+}
+
+/* Close button custom styling */
+.custom-quake-popup .leaflet-popup-close-button {
+  color: #64748b !important;
+  padding: 10px !important;
+  font-size: 16px !important;
+  top: 8px !important;
+  right: 8px !important;
+  z-index: 1010 !important;
+}
+
+.custom-quake-popup .leaflet-popup-close-button:hover {
+  color: #1e293b !important;
+  background: transparent !important;
+}
